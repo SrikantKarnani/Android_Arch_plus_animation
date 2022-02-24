@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/initial_transition"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="500"
+        app:motionInterpolator="linear" />
+    <Transition
+        android:id="@+id/revealSearch"
+        app:autoTransition="none"
+        app:constraintSetEnd="@id/searchConstraintSet"
+        app:constraintSetStart="@id/end"
+        app:duration="500">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@+id/iv_search" />
+    </Transition>
+
+    <Transition
+        android:id="@+id/hideSearch"
+        app:autoTransition="none"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/searchConstraintSet"
+        app:duration="500">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@+id/iv_back" />
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/repo_recycler">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/indicator">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/tv_error">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/language_spinner">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/iv_no_result">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/btn_retry">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/til">
+            <Layout app:layout_constraintBottom_toTopOf="parent" />
+            <PropertySet
+                android:visibility="gone"
+                app:visibilityMode="normal" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_header"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="iv_logo, til" />
+        <Constraint
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_logo" />
+        </Constraint>
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:visibilityMode="ignore">
+            <Layout
+                app:layout_constraintEnd_toStartOf="@id/tv_header"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:visibilityMode="ignore">
+            <Layout
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_logo"
+                app:layout_constraintTop_toTopOf="@id/iv_logo" />
+        </Constraint>
+        <Constraint
+            android:id="@id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:visibilityMode="ignore">
+            <Layout
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+        <Constraint android:id="@+id/repo_recycler">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/language_spinner">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/indicator">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/tv_error">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/iv_no_result">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint android:id="@+id/btn_retry">
+            <PropertySet app:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/til"
+            android:layout_width="0dp"
+            android:layout_height="48dp">
+            <Layout
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_back" />
+            <PropertySet
+                android:visibility="gone"
+                app:visibilityMode="normal" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <PropertySet
+                android:visibility="gone"
+                app:visibilityMode="normal" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="iv_logo, til" />
+    </ConstraintSet>
+
+
+    <ConstraintSet
+        android:id="@+id/searchConstraintSet"
+        app:deriveConstraintsFrom="@id/end">
+        <Constraint
+            android:id="@+id/barrier"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="iv_logo, til" />
+        <Constraint
+            android:id="@+id/til"
+            android:layout_width="0dp"
+            android:layout_height="48dp">
+            <Layout
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_back"
+                app:layout_constraintTop_toTopOf="parent" />
+            <PropertySet
+                android:visibility="visible"
+                app:visibilityMode="normal" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintBottom_toBottomOf="@id/til"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/til" />
+            <PropertySet
+                android:visibility="visible"
+                app:visibilityMode="normal" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_header"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Layout
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_logo" />
+        </Constraint>
+    </ConstraintSet>
+
+
+</MotionScene>

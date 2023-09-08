@@ -1,12 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.New" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.New" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="android:colorBackground">@color/background</item>
-        <item name="android:statusBarColor">@color/background</item>
-        <item name="colorAccent">@color/lightAccent</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/primaryColor</item>
+        <item name="android:colorBackground" tools:targetApi="34">@android:color/system_background_light</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryVariantColor</item>
+        <item name="colorOnPrimary">@color/secondaryVariantColor</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/secondaryVariantColor</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/accent_1_600</item>        <!-- Customize your theme here. -->
     </style>
 
     <style name="RoundedImageShape" parent="ShapeAppearance.Material3.MediumComponent">

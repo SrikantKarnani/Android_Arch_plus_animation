@@ -2,8 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/trendingFragment">
+    app:startDestination="@id/deeplink_app">
     <fragment
         android:id="@+id/trendingFragment"
         android:name="com.example.anew.features.search.TrendingRepoFragment" />
+
+    <fragment android:id="@+id/deeplink_app"
+        android:name="com.example.anew.features.deeplink_tester.DeeplinkTesterFragment"/>
 </navigation>
